@@ -1,18 +1,27 @@
-import Head from 'next/head';
-import { getPost, getSlugs } from '../../lib/posts';
+import Head from "next/head";
+import { getPost, getSlugs } from "../../lib/posts";
 
 export async function getStaticPaths() {
   const slugs = await getSlugs();
   return {
+    // This will acept an array of objects.
     paths: slugs.map((slug) => ({
       params: { slug },
     })),
+    // This is the same thatn above
+    // paths: [
+    //   { params: { slug: 'first-post'}}
+    //   { params: { slug: 'second-post'}}
+    // ]
     fallback: false,
   };
 }
 
+// This is the way to pass props into a page
+// This function is run at the Server Side.
+// So we can use any functionality offer by nodejs
 export async function getStaticProps({ params: { slug } }) {
-  console.log('[PostPage] getStaticProps():', slug);
+  console.log("[PostPage] getStaticProps():", slug);
   const post = await getPost(slug);
   return {
     props: { post },
@@ -20,7 +29,7 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 function PostPage({ post }) {
-  console.log('[PostPage] render:', post);
+  console.log("[PostPage] render:", post);
   return (
     <>
       <Head>

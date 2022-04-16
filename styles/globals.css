@@ -1,3 +1,6 @@
+/*The important thing to know is that with Next.js you can have global CSS files
+ that apply to your entire app, simply by importing them into your "_app.js" file. */
+
 /* Light Theme */
 :root {
   --background-color: white;
@@ -16,6 +19,7 @@ a {
   text-decoration: none;
 }
 
-a:focus, a:hover {
+a:focus,
+a:hover {
   text-decoration: underline;
 }
