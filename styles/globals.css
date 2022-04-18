@@ -1,7 +1,9 @@
 /*The important thing to know is that with Next.js you can have global CSS files
  that apply to your entire app, simply by importing them into your "_app.js" file. */
 
-/* Light Theme */
+/* Light Theme 
+   Here we are defining some global variables using the sudo root element. 
+   Global variables start with -- */
 :root {
   --background-color: white;
   --link-color: darkred;
